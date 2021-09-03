@@ -5,12 +5,13 @@ cmd=$1
 db_username=$2
 db_password=$3
 
-#check if docker is running
-if (! docker stats --no-stream ); then
-  sudo systemctl status docker || systemctl start docker
+#check if docker is running, if true, start docker.
+#systemctl status docker command output is sent to a null device to not output to the shell.
+if (! sudo systemctl status docker >/dev/null 2>/dev/null); then
+  sudo systemctl start docker
 fi
 
-#if command is to create a docker container
+#if command is "create", create a docker container
 if [ "${cmd}" == "create" ]; then
   #if docker container already exists, error
   if [ "$(docker container ls -a -f name=jrvs-psql | wc -l)" == 2 ]; then
@@ -18,7 +19,7 @@ if [ "${cmd}" == "create" ]; then
     exit 1
   fi
 
-  #if username or password is not in the command line, error
+  #if username or password is not in the command line (command line does not have 3 arguments), error
   if [ "$#" != 3 ]; then
     echo "Error: Missing username or password."
     exit 1
