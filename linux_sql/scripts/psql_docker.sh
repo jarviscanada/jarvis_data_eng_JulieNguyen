@@ -13,7 +13,7 @@ sudo systemctl status docker >/dev/null 2>/dev/null || systemctl start docker
 
 #if command is "create", create a docker container
 if [ "${cmd}" == "create" ]; then
-    if [ $"$container_wc" == 2 ]; then
+    if [ "$container_wc" == 2 ]; then
       echo "Error: Docker container \"jrvs-psql\" already exists."
       exit 1
     #if username or password is not in the command line (command line does not have 3 arguments), error
