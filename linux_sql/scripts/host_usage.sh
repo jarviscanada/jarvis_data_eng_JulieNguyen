@@ -16,13 +16,14 @@ export PGPASSWORD=$5
 hostname=$(hostname -f)
 
 #save statistics to a variable
+mem_out=`cat /proc/meminfo`
 cpustat_out=`vmstat -t`
 diskstat_out=`vmstat -d`
 disk_out=`df -BM /`
 
 #usage
 timestamp=$(date +"%Y-%m-%d %T") #current timestamp in `2019-11-26 14:40:19` format
-memory_free=$(echo `cat /proc/meminfo` | grep 'MemFree:' | awk '{print $2}'| xargs)
+memory_free=$(echo "$mem_out" | grep 'MemFree:' | awk '{print $2}'| xargs)
 cpu_idle=$(echo "$cpustat_out" | tail -1 | awk '{print $15}' | xargs) #id is cpu idle percentage. temp solution
 cpu_kernel=$(echo "$cpustat_out" | tail -1 | awk '{print $14}' | xargs) #sy is cpu kernel percentage
 disk_io=$(echo "$diskstat_out" | tail -1 | awk '{print $10}' | xargs)
