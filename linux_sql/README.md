@@ -22,7 +22,7 @@ The Linux Cluster Monitoring Agent (LCMA) is a cluster monitoring system that re
 ## Scripts
 `psql_docker.sh`:
 * A bash script that can create, start or stop a container.
-  * To create a container: `./scripts/psql_docker.sh create psql_user psql_password`
+  * To create a container: ```./scripts/psql_docker.sh create psql_user psql_password```
   * To start the container: `./scripts/psql_docker.sh start`
   * To stop the container: `./scripts/psql_docker.sh stop`
     
