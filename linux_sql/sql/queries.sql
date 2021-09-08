@@ -32,3 +32,19 @@ GROUP BY
     round5(usg.timestamp)
 ORDER BY
     timestamp ASC;
+
+-- Detect host failure
+SELECT
+    host_id,
+    round5(timestamp),
+    count(*) AS num_data_points
+FROM
+    host_usage
+GROUP BY
+    host_id,
+    round5(timestamp)
+HAVING
+    count(*) < 3
+ORDER BY
+    host_id,
+    round5(timestamp);
