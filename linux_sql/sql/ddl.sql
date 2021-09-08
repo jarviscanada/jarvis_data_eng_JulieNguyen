@@ -1,5 +1,5 @@
 -- switch to host_agent database
--- \c host_agent;
+\c host_agent;
 
 -- create host_info table
 CREATE TABLE PUBLIC.host_info
