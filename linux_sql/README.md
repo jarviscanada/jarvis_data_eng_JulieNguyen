@@ -10,7 +10,7 @@ The Linux Cluster Monitoring Agent (LCMA) is a cluster monitoring system that re
 # Implementation
 
 ## Architecture
-![Architecture](./assets/linux_sql_architecture.png)
+![Architecture](./assets/linux_sql_architecture_resize.png)
 
 ## Scripts
 `psql_docker.sh`
