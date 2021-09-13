@@ -99,7 +99,7 @@ The monitoring agent scripts require command line arguments in order to collect 
   * To run: `psql -h psql_host -U psql_user -d db_name -f sql/queries.sql`
 
 ## Database Modelling
-`host_info`:
+###`host_info`:
 
 Attribute  | Data Type | Constraint | Description
 ----------|-----------|---------|------------
@@ -113,7 +113,7 @@ Attribute  | Data Type | Constraint | Description
 `total_mem`|`INT`|`NOT NULL` |Total memory on the host computer (in kB).
 `timestamp`|`TIMESTAMP`|`NOT NULL` |The time of data entry (in YYYY-MM-DD HH:MM:SS format).
 
-`host_usage`:
+###`host_usage`:
 
 Attribute  | Data Type | Constraint | Description
 ----------|-----------|--------|-----------
