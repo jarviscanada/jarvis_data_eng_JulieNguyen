@@ -1,14 +1,14 @@
 # Julie Nguyen . Jarvis Consulting
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed venenatis a orci ac malesuada. Vivamus ligula elit, viverra eu ante porttitor, blandit convallis augue. Aliquam justo justo, mollis at lacus eu, rutrum finibus est. Vestibulum venenatis purus id accumsan pretium. In efficitur magna nec enim laoreet tincidunt. Ut libero metus, scelerisque nec eros vitae, sagittis pellentesque enim. Donec dictum felis volutpat, vehicula magna eu, imperdiet elit. Phasellus ut velit a massa efficitur faucibus. Sed volutpat, lacus sed sagittis luctus, elit.
+I am a recent graduate from Ryerson University with a Bachelor of Science (Honours) (BSc(Hons)) in Computer Science. During my education, I had the opportunity to study software engineering, database systems, and data mining, solidifying my programming fundamentals and gaining a strong interest in software development. Currently, I am a Data Engineer at Jarvis Consulting Group. At Jarvis, I am developing my skill sets using agile software development practices and working hands-on with applications of new technologies (Docker, REST APIs, Springboot, etc.). I am a strong problem-solver, fast-learner and team player who is excited to face new challenges and contribute to the success of a team as a Data Engineer.
 
 ## Skills
 
 **Proficient:** Java, Linux/Bash, RDBMS/SQL, Agile/Scrum, Git
 
-**Competent:** Donec, fermentum, Donec, fermentum, Donec
+**Competent:** Docker, Python, GitFlow, MySQL, JUnit
 
-**Familiar:** Donec, fermentum, fermentum, fermentum, fermentum
+**Familiar:** Networking, HTML/CSS, C/C++, Swift, MATLAB
 
 ## Jarvis Projects
 
@@ -48,12 +48,8 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_JulieNguye
 
 
 ## Education
-**XYZ university (2012-2016)**, Bachelor of Applied Sciences, Electrical and Computer Engineering
-- Scholarship
-- Dean's List (2015, 2016): Ut enim ad minim veniam
-- GPA: 3.8/4.0
-
-**XYZ university (2016-2018)**, Master of Engineering, Electrical and Computer Engineering
+**Ryerson University (2017-2021)**, Bachelor of Science (Honours), Computer Science
+- Dean's List (2021)
 
 
 ## Miscellaneous
