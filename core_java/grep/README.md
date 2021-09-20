@@ -29,12 +29,13 @@ cat out/$outfile
 
 #Implementation
 ## Pseudocode
+```java
 matchedLines = []
 for file in listFilesRecursively(rootDir)
   for line in readLines(file)
       if containsPattern(line)
         matchedLines.add(line)
-writeToFile(matchedLines)
+writeToFile(matchedLines)```
 
 ## Performance Issue
 The application outputs an OutOfMemoryError exception if the file size is larger than the heap of the JVM. The List data structure can easily get extremely large if a file contains too many lines to process. A solution would be to use Stream APIs, rather than Lists, to process file data. Streams do not store data and allows for elements to be computed on demand, allowing for memory to be saved in large sizes.
