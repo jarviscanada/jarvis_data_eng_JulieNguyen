@@ -50,4 +50,5 @@ public interface JavaGrep {
     String getOutFile();
 
     void setOutFile(String outFile);
+
 }
