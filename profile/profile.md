@@ -15,7 +15,7 @@ I am a recent graduate from Ryerson University with a Bachelor of Science (Honou
 Project source code: [https://github.com/jarviscanada/jarvis_data_eng_JulieNguyen](https://github.com/jarviscanada/jarvis_data_eng_JulieNguyen)
 
 
-**Cluster Monitor** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_JulieNguyen/tree/master/linux_sql)]: Suspendisse a tincidunt odio. Suspendisse posuere luctus aliquet. Quisque magna tellus, tempor vitae arcu sed, volutpat scelerisque lacus. Aliquam varius pulvinar dapibus. Ut a tincidunt sem. Aenean sollicitudin fringilla erat ut imperdiet. Phasellus fermentum, enim vitae laoreet elementum, eros nisl hendrerit lorem.
+**Cluster Monitor** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_JulieNguyen/tree/master/linux_sql)]: Implemented a cluster monitoring agent that uses bash and SQL script to monitor the hardware specifications and resource usage data of a cluster of Linux nodes. This data collected every minute using crontab and is stored in a PostgreSQL Docker database.
 
 **Core Java Apps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_JulieNguyen/tree/master/core_java)]:
       
