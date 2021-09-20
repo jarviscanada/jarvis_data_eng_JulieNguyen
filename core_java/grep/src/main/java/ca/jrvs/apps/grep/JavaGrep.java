@@ -9,7 +9,7 @@ public interface JavaGrep {
 
     List<File> listFiles(String rootDir);
 
-    List<String> readLines(File inputFile);
+    List<String> readLines(File inputFile) throws IOException;
 
     boolean containsPattern(String line);
 

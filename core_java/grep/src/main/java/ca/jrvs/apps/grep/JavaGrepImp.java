@@ -1,7 +1,9 @@
 package ca.jrvs.apps.grep;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
+import java.util.regex.*;
 import org.slf4j.*;
 import org.apache.log4j.BasicConfigurator;
 
@@ -50,26 +52,56 @@ public class JavaGrepImp implements JavaGrep {
     @Override
     public List<File> listFiles(String rootDir){
         List<File> fileList = new ArrayList<File>();
+        File rootFile = new File (rootDir);
 
+        File[] rootFiles = rootFile.listFiles();
 
+        if(rootFiles!=null) {
+            for (File file : rootFiles) {
+                if (file.isFile()) {
+                    fileList.add(file);
+                } else if (file.isDirectory()) {
+                    fileList.addAll(listFiles(file.getAbsolutePath()));
+                }
+            }
+        }
         return fileList;
     }
 
     @Override
-    public List<String> readLines(File inputFile){
+    public List<String> readLines(File inputFile) throws IOException {
         List<String> lines = new ArrayList<String>();
+        String line = "";
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(inputFile));
+
+        line = bufferedReader.readLine();
+
+        while(line!=null){
+            lines.add(line);
+            line = bufferedReader.readLine();
+        }
+
+        bufferedReader.close();
+
         return lines;
     }
 
     @Override
     public boolean containsPattern(String line){
-        boolean contains = false;
-        return contains;
+        boolean isPattern = Pattern.matches(getRegex(), line);
+        return isPattern;
     }
 
     @Override
     public void writeToFile(List<String> lines) throws IOException{
+        FileOutputStream fileOutput = new FileOutputStream(getOutFile(), false);
 
+        for(String line : lines) {
+            byte b[] = line.getBytes();
+            fileOutput.write(b);
+            fileOutput.write("\n".getBytes());
+        }
+        fileOutput.close();
     }
 
     @Override
