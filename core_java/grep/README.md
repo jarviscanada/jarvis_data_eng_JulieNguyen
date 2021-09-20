@@ -1,10 +1,31 @@
 # Java Grep App
 # Introduction
-(50-100 words)
-Discuss the design of each app. What does the app do? What technologies have you used? (e.g. core java, libraries, lambda, IDE, docker, etc..)
+This Java Grep App is made to replicate the Linux `grep` command, searching files in a directory and matching strings to within the files. 
+There are two different implementations, one using BufferedReader and FileOutputStream to read and write files and one using Lambda functions and Stream APIs to perform the same functionality.
+It implements Maven, Stream APIs, Regex and Lambda and is tested using the main method and JUnit testing. The application is contained in a Docker container.
 
 # Quick Start
-How to use your apps? 
+The following variables are required to run the program:
+* `regex_pattern`: the regex pattern to be searched
+* `src_dir`: the root directory path
+* `outfile`: the output file name
+
+The application can be run in two different ways:
+
+1. Using the Jar file:
+```bash
+java -cp target/grep-1.0-SNAPSHOT.jar ${regex_pattern} ${src_dir} ./out/${outfile}
+
+#verify
+cat out/$outfile
+```
+2. Using the Docker image:
+```bash
+docker run --rm -v `pwd`/data:/data -v `pwd`/out:/out jrvs/grep ${regex_pattern} ${src_dir} /out/${outfile}
+
+#verify 
+cat out/$outfile
+```
 
 #Implemenation
 ## Pseudocode
