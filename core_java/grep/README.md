@@ -14,32 +14,38 @@ The application can be run in two different ways:
 
 1. Using the Jar file:
 ```bash
+mvn clean package
 java -cp target/grep-1.0-SNAPSHOT.jar ${regex_pattern} ${src_dir} ./out/${outfile}
-
-#verify
-cat out/$outfile
 ```
 2. Using the Docker image:
 ```bash
-docker run --rm -v `pwd`/data:/data -v `pwd`/out:/out jrvs/grep ${regex_pattern} ${src_dir} /out/${outfile}
-
-#verify 
+docker pull julngyn/grep
+docker run --rm -v `pwd`/data:/data -v `pwd`/out:/out julngyn/grep ${regex_pattern} ${src_dir} /out/${outfile}
+```
+Once the program is run, view the file created using:
+```bash
 cat out/$outfile
 ```
 
-#Implemenation
+#Implementation
 ## Pseudocode
-write `process` method pseudocode.
+matchedLines = []
+for file in listFilesRecursively(rootDir)
+  for line in readLines(file)
+      if containsPattern(line)
+        matchedLines.add(line)
+writeToFile(matchedLines)
 
 ## Performance Issue
-(30-60 words)
-Discuss the memory issue and how would you fix it
+The application outputs an OutOfMemoryError exception if the file size is larger than the heap of the JVM. The List data structure can easily get extremely large if a file contains too many lines to process. A solution would be to use Stream APIs, rather than Lists, to process file data. Streams do not store data and allows for elements to be computed on demand, allowing for memory to be saved in large sizes.
 
 # Test
-How did you test your application manually? (e.g. prepare sample data, run some test cases manually, compare result)
+The app was tested by inputting sample data into the arguments of the program. This sample data was input manually, using multiple different regex strings, root directory paths and out filenames. By comparing it with the Linux `grep` command, any issues with correctness could be determined and fixed accordingly.
 
 # Deployment
-How you dockerize your app for easier distribution?
+A Docker image was created and uploaded to the Docker Hub for easy access. This can be viewed on publicly on `https://hub.docker.com/r/julngyn/grep` or using the command `docker pull julngyn/grep`.
 
 # Improvement
-List three things you can improve in this project.
+* Fix the performance issue by implementing more memory-efficient methods.
+* Allow user to perform multiple functionalities on the given files. For example, replacing text (like the Linux command `sed`) or searching filenames (like the Linux command `find`).
+* Output more specific details of the search, such as the line number and the timestamp of the search.
