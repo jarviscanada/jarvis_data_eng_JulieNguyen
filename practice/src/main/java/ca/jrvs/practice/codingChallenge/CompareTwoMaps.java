@@ -7,22 +7,24 @@ import java.util.*;
  */
 public class CompareTwoMaps {
 
-    //My solution
+    /**
+     * Time complexity is O(n) as it contains only one for-loop which iterates through each element of the two maps only once.
+     *
+     * @param m1
+     * @param m2
+     * @param <K>
+     * @param <V>
+     * @return
+     */
     public <K,V> boolean compareMaps(Map<K,V> m1, Map<K,V> m2){
-        Map<K,V> result = new HashMap<K, V>();
-
-        //O(n): singular for-loop with notation of n
-        for(K key : m1.keySet()){
-            if(m1.get(key).equals(m2.get(key))){
-                result.put(key, true);
-            }
-            else{
-                result.put(key, false);
+        if(m1.size()!=m2.size()){
+            return false;
+        }
+        for ( K key : m1.keySet() ) {
+            if(!m1.get(key).equals(m2.get(key))) {
+                return false;
             }
         }
-
-        return result;
+        return true;
     }
-
-    //Online solution
 }
