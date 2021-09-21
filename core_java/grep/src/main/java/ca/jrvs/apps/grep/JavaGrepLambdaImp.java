@@ -27,7 +27,7 @@ public class JavaGrepLambdaImp extends JavaGrepImp {
         try {
             javaGrepLambdaImp.process();
         } catch (Exception ex) {
-            javaGrepLambdaImp.logger.error(ex.getMessage(), ex);
+            javaGrepLambdaImp.logger.error("Error: Process failed.", ex);
         }
 
     }
