@@ -2,7 +2,6 @@ package ca.jrvs.apps.jdbc;
 
 import java.sql.*;
 
-import ca.jrvs.apps.jdbc.util.OrderDAO;
 import com.sun.org.slf4j.internal.Logger;
 import com.sun.org.slf4j.internal.LoggerFactory;
 

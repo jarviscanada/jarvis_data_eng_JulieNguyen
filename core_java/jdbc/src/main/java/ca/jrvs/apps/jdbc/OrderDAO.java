@@ -1,14 +1,19 @@
-package ca.jrvs.apps.jdbc.util;
+package ca.jrvs.apps.jdbc;
 
 import ca.jrvs.apps.jdbc.Customer;
 import ca.jrvs.apps.jdbc.Order;
 import ca.jrvs.apps.jdbc.OrderLine;
+import ca.jrvs.apps.jdbc.util.DataAccessObject;
+import com.sun.org.slf4j.internal.Logger;
+import com.sun.org.slf4j.internal.LoggerFactory;
 
 import java.sql.*;
 import java.util.*;
 import java.util.Date;
 
 public class OrderDAO extends DataAccessObject<Order> {
+
+    final Logger logger = LoggerFactory.getLogger(getClass());
 
     public OrderDAO(Connection connection) {
         super(connection);
