@@ -12,10 +12,10 @@ The Java Database Connectivity (JDBC) application is used to create a connection
 ![ER Diagram](./assets/er_diagram.png)
 
 ## Design Patterns
-###Data Access Object (DAO)
+### Data Access Object (DAO)
 The Data Access Object (DAO) pattern is a design pattern that allows for isolation of the application or business layer from the persistence layer (a relational database). This is typically done using an abstract API. The purpose of this API is to hide from the application all the complexities involved in performing CRUD and other operations in the underlying program. It permits both layers to be developed separately without knowing about each other's processes.
 
-###Repository
+### Repository
 The Repository pattern consists of classes or components that encapsulate the operations used to access data sources. This focuses on being able to access one table per class and performing join operations in the code rather than database. Similar to DAO patterns, it hides data access functionality, such as CRUD, providing easier maintainability. This lets you focus on the data persistence logic rather than on data access plumbing. DAO and Repository differ from each other as DAO focuses on the abstraction of data persistence, while Repository is an abstraction of a collection of objects.
 
 # Test
