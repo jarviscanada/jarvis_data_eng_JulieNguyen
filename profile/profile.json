@@ -27,7 +27,7 @@
     {
       "description": [
         "Twitter App: In progress",
-        "JDBC App: In progress",
+        "JDBC App: Implemented a Java Database Connectivity (JDBC) application, which is used to create a connection to a PostgreSQL database. The application allows for the client to perform predefined operations to the database, such as CRUD (create, read, update, delete). The project uses Java, JDBC, Maven, SQL, Docker and PostgreSQL.",
         "Grep App: Implemented a Java Grep App is made to replicate the Linux grep command, searching files in a directory and matching strings to within the files. It implements Maven, Stream APIs, Regex and Lambda and is tested using the main method and JUnit testing. The application is contained in a Docker container."
       ],
       "git_url": "/core_java",
@@ -63,7 +63,9 @@
   "others": [
     {
       "bullets": [
-        " "
+        "Minor in Psychology (2017-2021)",
+        "Studying intermediate Japanese and Vietnamese",
+        "Art \u0026 Design"
       ],
       "title": "Activities/Hobbies"
     }
