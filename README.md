@@ -20,18 +20,8 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_JulieNguye
 **Core Java Apps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_JulieNguyen/tree/master/core_java)]:
       
   - Twitter App: In progress
-  - JDBC App: In progress
+  - JDBC App: Implemented a Java Database Connectivity (JDBC) application, which is used to create a connection to a PostgreSQL database. The application allows for the client to perform predefined operations to the database, such as CRUD (create, read, update, delete). The project uses Java, JDBC, Maven, SQL, Docker and PostgreSQL.
   - Grep App: Implemented a Java Grep App is made to replicate the Linux grep command, searching files in a directory and matching strings to within the files. It implements Maven, Stream APIs, Regex and Lambda and is tested using the main method and JUnit testing. The application is contained in a Docker container.
-
-**Springboot App** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_JulieNguyen/tree/master/springboot)]: Not started
-
-**Python Data Analytics** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_JulieNguyen/tree/master/python_data_anlytics)]: Not started
-
-**Hadoop** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_JulieNguyen/tree/master/hadoop)]: Not started
-
-**Spark** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_JulieNguyen/tree/master/spark)]: Not started
-
-**Cloud/DevOps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_JulieNguyen/tree/master/cloud_devops)]: Not started
 
 
 ## Highlighted Projects
@@ -49,4 +39,6 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_JulieNguye
 
 
 ## Miscellaneous
--  
+- Minor in Psychology (2017-2021)
+- Studying intermediate Japanese and Vietnamese
+- Art & Design
