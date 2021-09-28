@@ -23,16 +23,6 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_JulieNguye
   - JDBC App: Implemented a Java Database Connectivity (JDBC) application, which is used to create a connection to a PostgreSQL database. The application allows for the client to perform predefined operations to the database, such as CRUD (create, read, update, delete). The project uses Java, JDBC, Maven, SQL, Docker and PostgreSQL.
   - Grep App: Implemented a Java Grep App is made to replicate the Linux grep command, searching files in a directory and matching strings to within the files. It implements Maven, Stream APIs, Regex and Lambda and is tested using the main method and JUnit testing. The application is contained in a Docker container.
 
-**Springboot App** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_JulieNguyen/tree/master/springboot)]: Not started
-
-**Python Data Analytics** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_JulieNguyen/tree/master/python_data_anlytics)]: Not started
-
-**Hadoop** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_JulieNguyen/tree/master/hadoop)]: Not started
-
-**Spark** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_JulieNguyen/tree/master/spark)]: Not started
-
-**Cloud/DevOps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_JulieNguyen/tree/master/cloud_devops)]: Not started
-
 
 ## Highlighted Projects
 **Refridge Grocery List Android App**: Worked in a team to create an Android app using Android Studio, Java and Google Firebase. The features of the app included a scanner to read barcodes of grocery items, a secure authentication system recording usernames and passwords and a vast grocery item Firebase database for users to add, remove and edit items efficiently. Team coordination efforts involved GitHub, daily meetings and charts made for project scheduling.
