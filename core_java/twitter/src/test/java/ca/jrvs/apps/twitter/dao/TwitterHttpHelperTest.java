@@ -1,7 +1,7 @@
 package ca.jrvs.apps.twitter.dao;
 
 import ca.jrvs.apps.twitter.dao.helper.HttpHelper;
-import junit.framework.TestCase;
+import ca.jrvs.apps.twitter.dao.helper.TwitterHttpHelper;
 import org.apache.http.HttpResponse;
 import org.apache.http.util.EntityUtils;
 import org.junit.*;
