@@ -130,6 +130,6 @@ public class TwitterDao implements CrdDao<Tweet, String>{
 
     public URI getDeleteUri(String s) throws URISyntaxException {
         //https://api.twitter.com/1.1/statuses/destroy?id=12345678
-        return new URI(API_BASE_URI+DELETE_PATH+QUERY_SYM+"id"+EQUAL+s);
+        return new URI(API_BASE_URI+DELETE_PATH+"/"+s+".json");
     }
 }

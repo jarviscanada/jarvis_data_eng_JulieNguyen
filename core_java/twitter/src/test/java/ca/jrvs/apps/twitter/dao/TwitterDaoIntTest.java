@@ -10,9 +10,11 @@ import junit.framework.TestCase;
 import org.apache.http.HttpResponse;
 import org.apache.http.util.EntityUtils;
 import org.junit.*;
+import org.junit.runners.MethodSorters;
 
 import java.net.URI;
 
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class TwitterDaoIntTest extends TestCase {
 
     public TwitterDao dao;
@@ -36,7 +38,7 @@ public class TwitterDaoIntTest extends TestCase {
     }
 
     @Test
-    public void testCreate() throws JsonProcessingException {
+    public void testACreate() throws JsonProcessingException {
         Tweet postTweet = TweetUtil.buildTweet(text, longitude, latitude);
         System.out.println(JsonUtil.toJson(postTweet, true, false));
 
@@ -51,9 +53,31 @@ public class TwitterDaoIntTest extends TestCase {
         assertTrue(hashtag.contains(tweet.getEntities().getHashtags().get(0).getText()));
     }
 
-    public void testFindById() {
+    @Test
+    public void testBFindById() throws JsonProcessingException {
+        String id = "1445461898166562818";
+        Tweet tweet = dao.findById(id);
+        System.out.println(JsonUtil.toJson(tweet, true, false));
+
+        assertEquals(text, tweet.getText());
+        assertNotNull(tweet.getCoordinates());
+        assertEquals(2, tweet.getCoordinates().getCoordinates().length);
+        assertEquals(longitude, tweet.getCoordinates().getCoordinates()[0]);
+        assertEquals(latitude, tweet.getCoordinates().getCoordinates()[1]);
+        assertTrue(hashtag.contains(tweet.getEntities().getHashtags().get(0).getText()));
     }
 
-    public void testDeleteById() {
+    @Test
+    public void testCDeleteById() throws JsonProcessingException {
+        String id = "1445461898166562818";
+        Tweet tweet = dao.deleteById(id);
+        System.out.println(JsonUtil.toJson(tweet, true, false));
+
+        assertEquals(text, tweet.getText());
+        assertNotNull(tweet.getCoordinates());
+        assertEquals(2, tweet.getCoordinates().getCoordinates().length);
+        assertEquals(longitude, tweet.getCoordinates().getCoordinates()[0]);
+        assertEquals(latitude, tweet.getCoordinates().getCoordinates()[1]);
+        assertTrue(hashtag.contains(tweet.getEntities().getHashtags().get(0).getText()));
     }
 }
