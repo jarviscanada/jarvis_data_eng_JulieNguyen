@@ -2,41 +2,39 @@ package ca.jrvs.apps.twitter.model;
 
 import com.fasterxml.jackson.annotation.*;
 
+import java.util.List;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonPropertyOrder({
         "hashtags",
-        "user_mentions",
-        "coordinates"
+        "user_mentions"
 })
 public class Entities {
 
     @JsonProperty("hashtags")
-    public Hashtag hashtags;
+    public List<Hashtag> hashtags;
     @JsonProperty("user_mentions")
-    public UserMention userMentions;
-    @JsonProperty("coordinates")
-    public Coordinates coordinates;
+    public List<UserMention> userMentions;
 
-    public Hashtag getHashtags() {
+    @JsonGetter
+    public List<Hashtag> getHashtags() {
         return hashtags;
     }
 
-    public void setHashtags(Hashtag hashtags) {
+    @JsonSetter
+    public void setHashtags(List<Hashtag> hashtags) {
         this.hashtags = hashtags;
     }
 
-    public UserMention getUserMentions() {
+    @JsonGetter
+    public List<UserMention> getUserMentions() {
         return userMentions;
     }
 
-    public void setUserMentions(UserMention userMentions) {
+    @JsonSetter
+    public void setUserMentions(List<UserMention> userMentions) {
         this.userMentions = userMentions;
     }
 
-    public Coordinates getCoordinates() {
-        return coordinates;
-    }
-
-    public void setCoordinates(Coordinates coordinates) {
-        this.coordinates = coordinates;
-    }
 }

@@ -31,10 +31,6 @@ public class TwitterHttpHelper implements HttpHelper {
         httpClient = new DefaultHttpClient();
     }
 
-    public static void main (String[]args) throws Exception{
-
-    }
-
     @Override
     public HttpResponse httpPost(URI uri) {
         try{

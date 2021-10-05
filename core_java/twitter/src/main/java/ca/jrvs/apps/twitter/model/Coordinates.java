@@ -2,6 +2,10 @@ package ca.jrvs.apps.twitter.model;
 
 import com.fasterxml.jackson.annotation.*;
 
+import java.util.List;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonPropertyOrder({
         "coordinates",
         "type"
@@ -9,17 +13,17 @@ import com.fasterxml.jackson.annotation.*;
 public class Coordinates {
 
     @JsonProperty("coordinates")
-    public int [] coordinates;
+    public float[] coordinates;
     @JsonProperty("type")
     public String type;
 
     @JsonGetter
-    public int[] getCoordinates() {
+    public float[] getCoordinates() {
         return coordinates;
     }
 
     @JsonSetter
-    public void setCoordinates(int[] coordinates) {
+    public void setCoordinates(float[] coordinates) {
         this.coordinates = coordinates;
     }
 

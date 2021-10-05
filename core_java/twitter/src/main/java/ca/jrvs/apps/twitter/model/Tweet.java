@@ -2,12 +2,15 @@ package ca.jrvs.apps.twitter.model;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonPropertyOrder({
         "created_at",
         "id",
         "id_str",
         "text",
         "entities",
+        "coordinates",
         "retweet_count",
         "favorite_count",
         "favorited",
@@ -24,7 +27,9 @@ public class Tweet {
     @JsonProperty("text")
     public String text;
     @JsonProperty("entities")
-    public String entities;
+    public Entities entities;
+    @JsonProperty("coordinates")
+    public Coordinates coordinates;
     @JsonProperty("retweet_count")
     public int retweetCount;
     @JsonProperty("favorite_count")
@@ -75,13 +80,23 @@ public class Tweet {
     }
 
     @JsonGetter
-    public String getEntities() {
+    public Entities getEntities() {
         return entities;
     }
 
     @JsonSetter
-    public void setEntities(String entities) {
+    public void setEntities(Entities entities) {
         this.entities = entities;
+    }
+
+    @JsonGetter
+    public Coordinates getCoordinates(){
+        return coordinates;
+    }
+
+    @JsonSetter
+    public void setCoordinates(Coordinates coordinates) {
+        this.coordinates = coordinates;
     }
 
     @JsonGetter
@@ -123,4 +138,5 @@ public class Tweet {
     public void setRetweeted(boolean retweeted) {
         this.retweeted = retweeted;
     }
+
 }
