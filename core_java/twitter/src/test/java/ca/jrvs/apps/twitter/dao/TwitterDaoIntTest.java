@@ -55,7 +55,7 @@ public class TwitterDaoIntTest extends TestCase {
 
     @Test
     public void testBFindById() throws JsonProcessingException {
-        String id = "1445461898166562818";
+        String id = "1445474141113503751";
         Tweet tweet = dao.findById(id);
         System.out.println(JsonUtil.toJson(tweet, true, false));
 
@@ -69,7 +69,7 @@ public class TwitterDaoIntTest extends TestCase {
 
     @Test
     public void testCDeleteById() throws JsonProcessingException {
-        String id = "1445461898166562818";
+        String id = "1445474141113503751";
         Tweet tweet = dao.deleteById(id);
         System.out.println(JsonUtil.toJson(tweet, true, false));
 
