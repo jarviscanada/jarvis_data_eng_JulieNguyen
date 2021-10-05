@@ -1,7 +1,18 @@
 package ca.jrvs.apps.twitter.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 
+@JsonPropertyOrder({
+        "created_at",
+        "id",
+        "id_str",
+        "text",
+        "entities",
+        "retweet_count",
+        "favorite_count",
+        "favorited",
+        "retweeted"
+})
 public class Tweet {
 
     @JsonProperty("created_at")
@@ -23,4 +34,93 @@ public class Tweet {
     @JsonProperty("retweeted")
     public boolean retweeted;
 
+    @JsonGetter
+    public String getCreatedAt() {
+        return createdAt;
+    }
+
+    @JsonSetter
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    @JsonGetter
+    public long getId() {
+        return id;
+    }
+
+    @JsonSetter
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    @JsonGetter
+    public String getId_str() {
+        return id_str;
+    }
+
+    @JsonSetter
+    public void setId_str(String id_str) {
+        this.id_str = id_str;
+    }
+
+    @JsonGetter
+    public String getText() {
+        return text;
+    }
+
+    @JsonSetter
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    @JsonGetter
+    public String getEntities() {
+        return entities;
+    }
+
+    @JsonSetter
+    public void setEntities(String entities) {
+        this.entities = entities;
+    }
+
+    @JsonGetter
+    public int getRetweetCount() {
+        return retweetCount;
+    }
+
+    @JsonSetter
+    public void setRetweetCount(int retweetCount) {
+        this.retweetCount = retweetCount;
+    }
+
+    @JsonGetter
+    public int getFavoriteCount() {
+        return favoriteCount;
+    }
+
+    @JsonSetter
+    public void setFavoriteCount(int favoriteCount) {
+        this.favoriteCount = favoriteCount;
+    }
+
+    @JsonGetter
+    public boolean isFavorited() {
+        return favorited;
+    }
+
+    @JsonSetter
+    public void setFavorited(boolean favorited) {
+        this.favorited = favorited;
+    }
+
+    @JsonGetter
+    public boolean isRetweeted() {
+        return retweeted;
+    }
+
+    @JsonSetter
+    public void setRetweeted(boolean retweeted) {
+        this.retweeted = retweeted;
+    }
 }
