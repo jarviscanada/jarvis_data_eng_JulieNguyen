@@ -130,12 +130,10 @@ public class TwitterServiceUnitTest {
                 "retweeted"
         };
         String[] invalidFields = {
-                "created_at",
-                "id",
-                "id_str",
-                "favorite_count",
-                "favorited",
-                "retweeted"
+                "created_@",
+                "idd",
+                "id_strr",
+                "favorite_countt"
         };
 
         //invalid id testing
@@ -154,7 +152,7 @@ public class TwitterServiceUnitTest {
             fail();
         }
         catch(IllegalArgumentException e){
-            final String expected = "Invalid or Missing Fields(s): text entities coordinates retweet_count ";
+            final String expected = "Invalid or Missing Fields(s): created_@ idd id_strr favorite_countt ";
             assertEquals(expected, e.getMessage());
         }
 

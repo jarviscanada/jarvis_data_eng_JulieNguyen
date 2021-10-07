@@ -109,12 +109,10 @@ public class TwitterServiceIntTest {
                 "retweeted"
         };
         String[] invalidFields = {
-                "created_at",
-                "id",
-                "id_str",
-                "favorite_count",
-                "favorited",
-                "retweeted"
+                "created_@",
+                "idd",
+                "id_strr",
+                "favorite_countt"
         };
 
         //invalid id testing

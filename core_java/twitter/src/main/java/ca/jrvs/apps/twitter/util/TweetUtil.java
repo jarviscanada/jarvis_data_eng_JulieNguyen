@@ -10,11 +10,11 @@ public class TweetUtil {
 
     public static Tweet buildTweet(String text, float longitude, float latitude){
         Tweet tweet = new Tweet();
-
         Coordinates coordinates = new Coordinates();
         float[] coordArr = {longitude, latitude};
         coordinates.setCoordinates(coordArr);
-        coordinates.setType("point");
+        coordinates.setType("Point");
+
         tweet.setText(text);
         tweet.setCoordinates(coordinates);
 

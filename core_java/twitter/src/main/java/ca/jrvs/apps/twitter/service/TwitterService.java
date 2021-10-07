@@ -68,9 +68,13 @@ public class TwitterService implements Service{
         validateId(id);
 
         if(fields!=null) {
-            ArrayList<String> fieldsList = new ArrayList(Arrays.asList(fields));
-            ArrayList<String> invalidFields = new ArrayList(Arrays.asList(validFields));
-            invalidFields.removeAll(fieldsList);
+            ArrayList<String> validFieldsList = new ArrayList(Arrays.asList(validFields));
+            ArrayList<String> invalidFields = new ArrayList<String>();
+            for(String field : fields){
+                if(!validFieldsList.contains(field)){
+                    invalidFields.add(field);
+                }
+            }
             if(invalidFields.size()!=0){
                 String exceptionMessage = "Invalid or Missing Fields(s): ";
                 for(String field : invalidFields){
