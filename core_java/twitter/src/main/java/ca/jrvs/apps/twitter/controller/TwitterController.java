@@ -5,8 +5,11 @@ import ca.jrvs.apps.twitter.service.Service;
 import ca.jrvs.apps.twitter.util.TweetUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
+import java.util.stream.Collectors;
 
 public class TwitterController implements Controller{
 
@@ -58,7 +61,11 @@ public class TwitterController implements Controller{
         }
 
         String id = args[1];
-        String [] fields = args[2].split(",");
+        List<String> fieldsList = Arrays.stream(args[2].split(","))
+                .map(s -> s.toLowerCase())
+                .map(s -> s.replaceAll("\\s+",""))
+                .collect(Collectors.toList());
+        String [] fields = fieldsList.toArray(new String[fieldsList.size()]);
 
         return service.showTweet(id, fields);
     }
