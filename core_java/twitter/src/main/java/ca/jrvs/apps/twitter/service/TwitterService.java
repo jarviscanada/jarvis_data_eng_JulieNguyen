@@ -3,6 +3,7 @@ package ca.jrvs.apps.twitter.service;
 import ca.jrvs.apps.twitter.dao.CrdDao;
 import ca.jrvs.apps.twitter.model.Coordinates;
 import ca.jrvs.apps.twitter.model.Tweet;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -11,6 +12,7 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+@org.springframework.stereotype.Service
 public class TwitterService implements Service{
 
     private CrdDao dao;
@@ -21,6 +23,7 @@ public class TwitterService implements Service{
     private static final float LAT_MIN = -90;
     private static final float LAT_MAX = 90;
 
+    @Autowired
     public TwitterService(CrdDao dao) {
         this.dao = dao;
     }

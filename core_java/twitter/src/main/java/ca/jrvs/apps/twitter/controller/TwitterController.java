@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.stream.Collectors;
 
+@org.springframework.stereotype.Controller
 public class TwitterController implements Controller{
 
     private static final String COORD_SEP = ":";
@@ -55,12 +56,16 @@ public class TwitterController implements Controller{
 
     @Override
     public Tweet showTweet(String[]args){
-        if(args.length!=3) {
+        if(args.length>3) {
             throw new IllegalArgumentException("Invalid or " +
                     "Missing Arguments. Usage: TwitterApp show tweet_id \"field1,fields2\"");
         }
-
         String id = args[1];
+
+        if(args.length==2){
+            return service.showTweet(id, null);
+        }
+
         List<String> fieldsList = Arrays.stream(args[2].split(","))
                 .map(s -> s.toLowerCase())
                 .map(s -> s.replaceAll("\\s+",""))

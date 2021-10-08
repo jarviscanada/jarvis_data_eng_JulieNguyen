@@ -79,9 +79,9 @@ public class TwitterControllerIntTest {
 
     @Test
     public void showTweet() {
-        String [] missingArgs = {"show", "1446172072154214407"};
+        String [] tooManyArgs = {"show", "1446565009027387392", "dfsfds", "fdsfdsfsd"};
         try{
-            controller.showTweet(missingArgs);
+            controller.showTweet(tooManyArgs);
             fail();
         }
         catch(IllegalArgumentException e){
@@ -90,7 +90,7 @@ public class TwitterControllerIntTest {
             assertEquals(expected, e.getMessage());
         }
 
-        String [] validArgs = {"show", "1446172072154214407", "id,text,coordinates"};
+        String [] validArgs = {"show", "1446565009027387392", "id,text,coordinates"};
         Tweet tweet = controller.showTweet(validArgs);
 
         String text = "Hello!";
