@@ -10,6 +10,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -18,8 +19,7 @@ public class TwitterServiceIntTest {
 
     public TwitterService service;
     String hashtag = "#sample";
-    String text = "@tos test9 " + hashtag;
-    String text2 = "@tos test5 " + hashtag;
+    String text = "@tos test " + hashtag;
     float longitude = 10.1f;
     float latitude = -10.1f;
 
@@ -80,21 +80,20 @@ public class TwitterServiceIntTest {
             final String expected = "Coordinates are out of range.";
             assertEquals(expected, e.getMessage());
         }
-
-        Tweet postTweet = TweetUtil.buildTweet(text, longitude, latitude);
+        String newText = text+" "+System.currentTimeMillis();
+        Tweet postTweet = TweetUtil.buildTweet(newText, longitude, latitude);
         Tweet tweet = service.postTweet(postTweet);
 
         //testing valid tweet
-        assertEquals(text, tweet.getText());
+        assertEquals(newText, tweet.getText());
         int epsilon =(int) Math.abs(longitude - tweet.getCoordinates().getCoordinates()[0]); //required for float testing
         assertEquals(longitude, tweet.getCoordinates().getCoordinates()[0], epsilon);
         assertEquals(latitude, tweet.getCoordinates().getCoordinates()[1], epsilon);
-        assertTrue(hashtag.contains(tweet.getEntities().getHashtags().get(0).getText()));
     }
 
     @Test
     public void testBShowTweet() throws JsonProcessingException {
-        String id = "1445814382668091394";
+        String id = "1446578796849770497";
         String invalidId = "ABC1234ABCDEFG%&*#JKLMN";
         String[] fields = {
                 "created_at",
@@ -131,13 +130,15 @@ public class TwitterServiceIntTest {
             fail();
         }
         catch(IllegalArgumentException e){
-            final String expected = "Invalid or Missing Fields(s): text entities coordinates retweet_count ";
+            final String expected = "Invalid or Missing Fields(s): created_@ idd id_strr favorite_countt ";
             assertEquals(expected, e.getMessage());
         }
 
         Tweet tweet = service.showTweet(id, fields);
 
-        assertEquals(text, tweet.getText());
+        String expectedText = "@tos SHOW TWEET SAMPLE. DO NOT DELETE. #sample 1633726235820";
+
+        assertEquals(expectedText, tweet.getText());
         int epsilon =(int) Math.abs(longitude - tweet.getCoordinates().getCoordinates()[0]);
         assertEquals(longitude, tweet.getCoordinates().getCoordinates()[0], epsilon);
         assertEquals(latitude, tweet.getCoordinates().getCoordinates()[1], epsilon);
@@ -146,9 +147,7 @@ public class TwitterServiceIntTest {
 
     @Test
     public void testCDeleteById() throws JsonProcessingException {
-        String[] ids = {"1445454948389429253", "1445455964530823179"};
         String[] invalidIds = {"ABC1234ABCDEFG%&*#JKLMN", "1445814382668091394"};
-        List<Tweet> tweets = service.deleteTweets(ids);
 
         //invalid id testing
         try{
@@ -160,12 +159,19 @@ public class TwitterServiceIntTest {
             assertEquals(expected, e.getMessage());
         }
 
-        for(Tweet tweet : tweets) {
-            assertTrue((text.equals(tweet.getText())) || text2.equals(tweet.getText()));
+        long time = System.currentTimeMillis();
+        Tweet twt = service.postTweet(TweetUtil.buildTweet(text+time, longitude, latitude));
+        Tweet twt2 = service.postTweet(TweetUtil.buildTweet(text+time+"2", longitude, latitude));
+
+        String [] ids = {twt.getId_str(),twt2.getId_str()};
+
+        List<Tweet> deletedTweets = service.deleteTweets(ids);
+
+        for(Tweet tweet : deletedTweets) {
+            assertTrue(((text+time).equals(tweet.getText())) || (text+time+"2").equals(tweet.getText()));
             int epsilon = (int) Math.abs(longitude - tweet.getCoordinates().getCoordinates()[0]);
             assertEquals(longitude, tweet.getCoordinates().getCoordinates()[0], epsilon);
             assertEquals(latitude, tweet.getCoordinates().getCoordinates()[1], epsilon);
-            assertTrue(hashtag.contains(tweet.getEntities().getHashtags().get(0).getText()));
         }
     }
 }

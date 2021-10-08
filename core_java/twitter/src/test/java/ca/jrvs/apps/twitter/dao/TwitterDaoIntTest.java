@@ -19,7 +19,8 @@ public class TwitterDaoIntTest extends TestCase {
 
     public TwitterDao dao;
     String hashtag = "#sample";
-    String text = "@tos test8 " + hashtag;
+    long time = System.currentTimeMillis();
+    String text = "@tos test " + hashtag+ " " +time;
     float longitude = 10.1f;
     float latitude = -10.1f;
 
@@ -40,10 +41,7 @@ public class TwitterDaoIntTest extends TestCase {
     @Test
     public void testACreate() throws JsonProcessingException {
         Tweet postTweet = TweetUtil.buildTweet(text, longitude, latitude);
-        System.out.println(JsonUtil.toJson(postTweet, true, false));
-
         Tweet tweet = dao.create(postTweet);
-        System.out.println(JsonUtil.toJson(tweet, true, false));
 
         assertEquals(text, tweet.getText());
         assertNotNull(tweet.getCoordinates());
@@ -55,11 +53,12 @@ public class TwitterDaoIntTest extends TestCase {
 
     @Test
     public void testBFindById() throws JsonProcessingException {
-        String id = "1445474141113503751";
+        String id = "1446578796849770497";
         Tweet tweet = dao.findById(id);
-        System.out.println(JsonUtil.toJson(tweet, true, false));
 
-        assertEquals(text, tweet.getText());
+        String expectedText = "@tos SHOW TWEET SAMPLE. DO NOT DELETE. #sample 1633726235820";
+
+        assertEquals(expectedText, tweet.getText());
         assertNotNull(tweet.getCoordinates());
         assertEquals(2, tweet.getCoordinates().getCoordinates().length);
         assertEquals(longitude, tweet.getCoordinates().getCoordinates()[0]);
@@ -69,11 +68,10 @@ public class TwitterDaoIntTest extends TestCase {
 
     @Test
     public void testCDeleteById() throws JsonProcessingException {
-        String id = "1445474141113503751";
-        Tweet tweet = dao.deleteById(id);
-        System.out.println(JsonUtil.toJson(tweet, true, false));
+        Tweet postTweet = dao.create(TweetUtil.buildTweet(text+"2", longitude, latitude));
+        Tweet tweet = dao.deleteById(postTweet.getId_str());
 
-        assertEquals(text, tweet.getText());
+        assertEquals(text+"2", tweet.getText());
         assertNotNull(tweet.getCoordinates());
         assertEquals(2, tweet.getCoordinates().getCoordinates().length);
         assertEquals(longitude, tweet.getCoordinates().getCoordinates()[0]);

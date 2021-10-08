@@ -19,7 +19,7 @@ public class TwitterService implements Service{
 
     private static final int TWEET_LIMIT = 280;
     private static final float LONG_MIN = -180;
-    private static final float LONG_MAX = 180;
+    private static final float LONG_MAX = 80;
     private static final float LAT_MIN = -90;
     private static final float LAT_MAX = 90;
 

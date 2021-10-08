@@ -5,6 +5,7 @@ import ca.jrvs.apps.twitter.dao.helper.HttpHelper;
 import ca.jrvs.apps.twitter.dao.helper.TwitterHttpHelper;
 import ca.jrvs.apps.twitter.model.Tweet;
 import ca.jrvs.apps.twitter.service.TwitterService;
+import ca.jrvs.apps.twitter.util.TweetUtil;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -65,8 +66,10 @@ public class TwitterControllerIntTest {
             assertEquals(expected, e.getMessage());
         }
 
-        String [] validArgs = {"post", "Hello!", "10.1:10.1"};
-        String text = "Hello!";
+        long time = System.currentTimeMillis();
+        String text = "Hello! "+time;
+        String [] validArgs = {"post", text, "10.1:10.1"};
+
         float longitude = 10.1f;
         float latitude = 10.1f;
         Tweet tweet = controller.postTweet(validArgs);
@@ -90,12 +93,12 @@ public class TwitterControllerIntTest {
             assertEquals(expected, e.getMessage());
         }
 
-        String [] validArgs = {"show", "1446565009027387392", "id,text,coordinates"};
+        String [] validArgs = {"show", "1446578796849770497", "id,text,coordinates"};
         Tweet tweet = controller.showTweet(validArgs);
 
-        String text = "Hello!";
+        String text = "@tos SHOW TWEET SAMPLE. DO NOT DELETE. #sample 1633726235820";
         float longitude = 10.1f;
-        float latitude = 10.1f;
+        float latitude = -10.1f;
 
         assertEquals(text, tweet.getText());
         int epsilon =(int) Math.abs(longitude - tweet.getCoordinates().getCoordinates()[0]); //required for float testing
@@ -116,16 +119,26 @@ public class TwitterControllerIntTest {
             assertEquals(expected, e.getMessage());
         }
 
-        String [] validArgs = {"delete", "1446179603752669195"};
-        List<Tweet> tweets = controller.deleteTweet(validArgs);
+        long time = System.currentTimeMillis();
+        String text = "Hello! "+time;
 
-        String text = "Hello!";
         float longitude = 10.1f;
         float latitude = 10.1f;
 
-        assertEquals(text, tweets.get(0).getText());
-        int epsilon =(int) Math.abs(longitude - tweets.get(0).getCoordinates().getCoordinates()[0]); //required for float testing
-        assertEquals(longitude, tweets.get(0).getCoordinates().getCoordinates()[0], epsilon);
-        assertEquals(latitude, tweets.get(0).getCoordinates().getCoordinates()[1], epsilon);
+        String [] postArgs = {"post", text, "10.1:10.1"};
+        String [] postArgs2 = {"post", text+"2", "10.1:10.1"};
+        Tweet twt = controller.postTweet(postArgs);
+        Tweet twt2 = controller.postTweet(postArgs2);
+
+        String [] ids = {twt.getId_str(),twt2.getId_str()};
+
+        List<Tweet> deletedTweets = controller.deleteTweet(ids);
+
+        for(Tweet tweet : deletedTweets) {
+            assertTrue(((text).equals(tweet.getText())) || (text+"2").equals(tweet.getText()));
+            int epsilon = (int) Math.abs(longitude - tweet.getCoordinates().getCoordinates()[0]);
+            assertEquals(longitude, tweet.getCoordinates().getCoordinates()[0], epsilon);
+            assertEquals(latitude, tweet.getCoordinates().getCoordinates()[1], epsilon);
+        }
     }
 }

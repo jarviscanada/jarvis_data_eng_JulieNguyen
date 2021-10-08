@@ -106,11 +106,11 @@ public class TwitterControllerUnitTest {
         testTweet.setText(text);
         testTweet.setId_str("1446172072154214407");
 
-        String [] missingArgs = {"show", "1446172072154214407"};
+        String [] tooManyArgs = {"show", "1446172072154214407", "sdfds", "Fdsfds"};
 
         when(service.showTweet(any(), any())).thenReturn(testTweet);
         try{
-            controller.showTweet(missingArgs);
+            controller.showTweet(tooManyArgs);
             fail();
         }
         catch(IllegalArgumentException e){
