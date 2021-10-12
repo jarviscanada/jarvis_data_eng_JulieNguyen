@@ -3,7 +3,7 @@ The Twitter CRUD App is an application that allows the user to post, read and de
 - Maven
 - Java (JDBC)
 - HTTP & JSON
-- Junit & Mockito
+- JUnit & Mockito
 - Spring
 - Docker
 - Twitter REST APIs
