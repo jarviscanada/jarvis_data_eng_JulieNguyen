@@ -15,7 +15,7 @@ The application can be run in two different ways:
 1. Using the Jar file:
 ```bash
 mvn clean package
-java -cp target/grep-1.0-SNAPSHOT.jar ${regex_pattern} ${src_dir} ./out/${outfile}
+java -jar target/grep-1.0-SNAPSHOT.jar ${regex_pattern} ${src_dir} ./out/${outfile}
 ```
 2. Using the Docker image:
 ```bash
@@ -27,7 +27,7 @@ Once the program is run, view the file created using:
 cat out/$outfile
 ```
 
-#Implementation
+# Implementation
 
 ## Pseudocode
 ```java
