@@ -7,6 +7,8 @@ import ca.jrvs.apps.twitter.util.JsonUtil;
 import com.google.gdata.util.common.base.PercentEscaper;
 import org.apache.http.HttpResponse;
 import org.apache.http.util.EntityUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -26,6 +28,8 @@ public class TwitterDao implements CrdDao<Tweet, String>{
     private static final String EQUAL = "=";
 
     private static final int HTTP_OK = 200;
+
+    final Logger logger = LoggerFactory.getLogger(TwitterDao.class);
 
     private HttpHelper httpHelper;
 
@@ -83,10 +87,10 @@ public class TwitterDao implements CrdDao<Tweet, String>{
         int status = response.getStatusLine().getStatusCode();
         if (status != expectedStatusCode){
             try{
-                System.out.println(EntityUtils.toString(response.getEntity()));
+                logger.debug(EntityUtils.toString(response.getEntity()));
             }
             catch(IOException e){
-                System.out.println("Response has no entity");
+                logger.error("Response has no entity");
             }
             throw new RuntimeException("Unexpected HTTP status: "+status);
         }
