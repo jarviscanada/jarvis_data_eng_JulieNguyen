@@ -3,7 +3,7 @@ The Twitter CRUD App is an application that allows the user to post, read and de
 - Maven
 - Java (JDBC)
 - HTTP & JSON
-- Junit & Mockito
+- JUnit & Mockito
 - Spring
 - Docker
 - Twitter REST APIs
@@ -63,7 +63,8 @@ julngyn/twitter post|show|delete [options]
 - `TwitterDao`: The Data Access (DAO) layer is responsible for handling HTTP requests and responses, retrieving and sending information to and from Twitter. It uses `TwitterHttpHelper` and URI statements to assist in the execution of POST and GET requests.
 ## Models
 ### Tweet
-The Tweet model used in the Twitter app is a simplified version of the complete Tweet model. It excludes any attributes that are not used in this application. A `Tweet` object is used, which contains `Entities`, `Coordinates`, `UserMention` and `Hashtag` objects.
+The Tweet model used in the Twitter app is a simplified version of the complete Tweet model. It excludes any attributes that are not used in this application. A `Tweet` object is used, which contains `Entities`, `Coordinates`, `UserMention` and `Hashtag` objects.  
+  
 ![ER_diagram](./assets/ER_diagram.png)
 
 ## Spring
