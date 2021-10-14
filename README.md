@@ -19,13 +19,15 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_JulieNguye
 
 **Core Java Apps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_JulieNguyen/tree/master/core_java)]:
       
-  - Twitter App: In progress
+  - Twitter App: Developed an application that allows a user to post, read and delete Tweets via the official Twitter REST APIs. This app is designed following the well-known MVC architecture, consisting of a model, controller layer, service layer and data access (DAO) layer. The application uses Java, JUnit, Spring, Docker, HTTP and JSON.
   - JDBC App: Implemented a Java Database Connectivity (JDBC) application, which is used to create a connection to a PostgreSQL database. The application allows for the client to perform predefined operations to the database, such as CRUD (create, read, update, delete). The project uses Java, JDBC, Maven, SQL, Docker and PostgreSQL.
   - Grep App: Implemented a Java Grep App is made to replicate the Linux grep command, searching files in a directory and matching strings to within the files. It implements Maven, Stream APIs, Regex and Lambda and is tested using the main method and JUnit testing. The application is contained in a Docker container.
 
 
 ## Highlighted Projects
 **Refridge Grocery List Android App**: Worked in a team to create an Android app using Android Studio, Java and Google Firebase. The features of the app included a scanner to read barcodes of grocery items, a secure authentication system recording usernames and passwords and a vast grocery item Firebase database for users to add, remove and edit items efficiently. Team coordination efforts involved GitHub, daily meetings and charts made for project scheduling.
+
+**CACM Document Retrieval Application**: Created a Java program that finds the most relevant document in a collection of over 3000 documents ([the CACM collection](http://ir.dcs.gla.ac.uk/resources/test_collections/cacm/)). Preprocessed queries to filter stop words, stem words and non-alphanumeric values and stored document frequency, term frequency, position and document ID for every term. This information was then used to score the document relevancy for any user query to find the most relevant documents.
 
 
 ## Professional Experiences
