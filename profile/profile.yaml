@@ -21,23 +21,25 @@ skills:
   proficient:
     - Java
     - Linux/Bash
-    - RDBMS/SQL
+    - SQL
+    - PostgreSQL/RDBMS
     - Agile/Scrum
-    - Git
+    - Git/GitFlow
   # At least 5 skills
   competent:
     - Docker
     - Python
-    - GitFlow
-    - MySQL
-    - JUnit
+    - Maven
+    - JUnit/Mockito
+    - Spring/SpringBoot
   # At least 5 skills
   familiar:
     - Networking
     - HTML/CSS
     - C/C++
-    - Swift
-    - MATLAB
+    - Hadoop
+    - MySQL
+    - HTTP/JSON
 
 # List of Jarvis projects
 jarvis_projects:
