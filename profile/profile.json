@@ -62,23 +62,25 @@
     "competent": [
       "Docker",
       "Python",
-      "GitFlow",
-      "MySQL",
-      "JUnit"
+      "Maven",
+      "JUnit/Mockito",
+      "Spring/SpringBoot"
     ],
     "familiar": [
       "Networking",
       "HTML/CSS",
       "C/C++",
-      "Swift",
-      "MATLAB"
+      "Hadoop",
+      "MySQL",
+      "HTTP/JSON"
     ],
     "proficient": [
       "Java",
       "Linux/Bash",
-      "RDBMS/SQL",
+      "SQL",
+      "PostgreSQL/RDBMS",
       "Agile/Scrum",
-      "Git"
+      "Git/GitFlow"
     ]
   },
   "summary": "I am a recent graduate from Ryerson University with a Bachelor of Science (Honours) (BSc(Hons)) in Computer Science. During my education, I had the opportunity to study software engineering, database systems, and data mining, solidifying my programming fundamentals and gaining a strong interest in software development. Currently, I am a software developer at Jarvis Consulting Group. At Jarvis, I am developing my skill sets using agile software development practices and working hands-on with applications of new technologies (Docker, REST APIs, Springboot, etc.). I am a strong problem-solver, fast-learner and team player who is excited to face new challenges and contribute to the success of a team as a Data Engineer."
