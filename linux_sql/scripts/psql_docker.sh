@@ -13,20 +13,20 @@ sudo systemctl status docker >/dev/null 2>/dev/null || systemctl start docker
 
 case "${cmd}" in
   #if command is create, then create docker container
-  "create" )
+  "create")
     if [ "$container_wc" == 2 ]; then
-          echo "Error: Docker container \"jrvs-psql\" already exists."
-          exit 1
-        #if username or password is not in the command line (command line does not have 3 arguments), error
-        elif [ "$#" != 3 ]; then
-          echo "Error: Missing username or password."
-          exit 1
-        fi
+      echo "Error: Docker container \"jrvs-psql\" already exists."
+      exit 1
+    #if username or password is not in the command line (command line does not have 3 arguments), error
+    elif [ "$#" != 3 ]; then
+      echo "Error: Missing username or password."
+      exit 1
+    fi
 
-        #create docker volume & docker container "jrvs-psql"
-        docker volume create pgdata
-        docker run --name jrvs-psql -e POSTGRES_PASSWORD="${db_password}" -e POSTGRES_USER="${db_username}" -d -v pgdata:/var/lib/postgresql/data -p 5432:5432 postgres
-        exit $?
+    #create docker volume & docker container "jrvs-psql"
+    docker volume create pgdata
+    docker run --name jrvs-psql -e POSTGRES_PASSWORD="${db_password}" -e POSTGRES_USER="${db_username}" -d -v pgdata:/var/lib/postgresql/data -p 5432:5432 postgres
+    exit $?
   ;;
   #if command is start/stop, then start/stop docker container
   "start" | "stop")
