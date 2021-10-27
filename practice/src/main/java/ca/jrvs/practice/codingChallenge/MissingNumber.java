@@ -3,6 +3,10 @@ package ca.jrvs.practice.codingChallenge;
 import java.util.HashSet;
 import java.util.Set;
 
+/**Challenge: Missing Number
+ * https://www.notion.so/jarvisdev/Missing-Number-88d0344a315647f5a6249ffe31971868
+ */
+
 public class MissingNumber {
 
     //O(n) solution where n is the number of elements in int[]nums as it has O(3n) for-loops = O(n)

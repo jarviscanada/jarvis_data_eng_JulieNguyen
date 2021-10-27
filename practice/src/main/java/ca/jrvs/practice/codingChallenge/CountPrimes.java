@@ -1,5 +1,9 @@
 package ca.jrvs.practice.codingChallenge;
 
+/**Challenge: Count Primes
+ * https://www.notion.so/jarvisdev/Count-Primes-b90b6021f1ce40d89480be63676d847c
+ */
+
 public class CountPrimes {
 
     //O(n^2) solution. there is a nested for-loop
