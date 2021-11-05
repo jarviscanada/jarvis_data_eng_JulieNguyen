@@ -1,6 +1,6 @@
 # Julie Nguyen . Jarvis Consulting
 
-I am a recent graduate from Ryerson University with a Bachelor of Science (Honours) (BSc(Hons)) in Computer Science. During my education, I had the opportunity to study software engineering, database systems, and data mining, solidifying my programming fundamentals and gaining a strong interest in software development. Currently, I am a software developer at Jarvis Consulting Group. At Jarvis, I am developing my skill sets using agile software development practices and working hands-on with applications of new technologies (Docker, REST APIs, Springboot, etc.). I am a strong problem-solver, fast-learner and team player who is excited to face new challenges and contribute to the success of a team as a Data Engineer.
+I am a recent graduate from Ryerson University with a Bachelor of Science (Honours) in Computer Science. During my education, I had the opportunity to study software engineering, database systems, and data mining, solidifying my programming fundamentals and gaining a strong interest in software development. Currently, I am a software developer at Jarvis Consulting Group. At Jarvis, I am developing my skill sets using agile software development practices and working hands-on with applications of new technologies (Docker, REST APIs, Springboot, etc.). I am a strong problem-solver, fast-learner and team player who is excited to face new challenges and contribute to the success of a team as a Data Engineer.
 
 ## Skills
 
@@ -42,5 +42,5 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_JulieNguye
 
 ## Miscellaneous
 - Minor in Psychology (2017-2021)
-- Studying intermediate Japanese and Vietnamese
+- Studying Japanese and Vietnamese
 - Art & Design
