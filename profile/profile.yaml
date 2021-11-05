@@ -12,7 +12,7 @@ github_repo_root_url: https://github.com/jarviscanada/jarvis_data_eng_JulieNguye
 
 # Introduce yourself, your academic and professional background.
 # What excites you about the software industry and your passion. At least 80 words
-summary: I am a recent graduate from Ryerson University with a Bachelor of Science (Honours) (BSc(Hons)) in Computer Science. During my education, I had the opportunity to study software engineering, database systems, and data mining, solidifying my programming fundamentals and gaining a strong interest in software development. Currently, I am a software developer at Jarvis Consulting Group. At Jarvis, I am developing my skill sets using agile software development practices and working hands-on with applications of new technologies (Docker, REST APIs, Springboot, etc.). I am a strong problem-solver, fast-learner and team player who is excited to face new challenges and contribute to the success of a team as a Data Engineer.
+summary: I am a recent graduate from Ryerson University with a Bachelor of Science (Honours) in Computer Science. During my education, I had the opportunity to study software engineering, database systems, and data mining, solidifying my programming fundamentals and gaining a strong interest in software development. Currently, I am a software developer at Jarvis Consulting Group. At Jarvis, I am developing my skill sets using agile software development practices and working hands-on with applications of new technologies (Docker, REST APIs, Springboot, etc.). I am a strong problem-solver, fast-learner and team player who is excited to face new challenges and contribute to the success of a team as a Data Engineer.
 
 # Group your skills by level.
 # Your skills can be anything software related (e.g. language, frameworks, methodologies, software, etc.).
@@ -111,5 +111,5 @@ others:
   - title: "Activities/Hobbies"
     bullets:
     - "Minor in Psychology (2017-2021)"
-    - "Studying intermediate Japanese and Vietnamese"
+    - "Studying Japanese and Vietnamese"
     - "Art & Design"
