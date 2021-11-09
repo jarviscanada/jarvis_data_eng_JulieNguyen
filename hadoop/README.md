@@ -1,8 +1,8 @@
 # Hadoop Project
 # Table of contents
 * [Introduction](#Introduction)
-* [Hadoop Cluster](#"Hadoop Cluster")
-* [Hive Project](#"Hive Project")
+* [Hadoop Cluster](#Hadoop%20Cluster)
+* [Hive Project](#Hive%20Project)
 * [Improvements](#Improvements)
 
 # Introduction
