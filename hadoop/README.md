@@ -21,17 +21,15 @@ The data is tested for correctness using table views and queries.
 - hardware specifications
 
 # Hive Project
-- Discuss how you optimized Hive queries? (e.g. partitions, columnar, etc..)
-
 ### Optimization
+The data was optimized to allow for faster data access and table overwriting by using two techniques, partitioning
+and columnar file optimization. By partitioning the dataset by year, separating the data into over 50
+different files, this cut allowed the amount of data being searched to be significantly reduced. Columnar
+file optimization is used as another method for faster querying of data. This uses parquets to compress files
+into smaller, more easily-accessible files, using several encoding methods. This significantly improved the 
+performance of the HiveQL as it allowed the query to focus on relevant data faster.
 
-### Optimization
-
-
-- Post your Zeppelin Notebook screenshot here
-    - Make sure your Notebook is nice and clean as hiring managers will visit your project
-    - use `Full Page Screen Capture` chrome extension to capture a webpage as a picture
-
+### Zeppelin Notebook
 ![Jarvis Hive Project](./assets/JarvisHiveProject.png)
 
 # Improvements
