@@ -1,8 +1,8 @@
 # Hadoop Project
 # Table of contents
 * [Introduction](#Introduction)
-* [Hadoop Cluster](#Hadoop Cluster)
-* [Hive Project](#Hive Project)
+* [Hadoop Cluster](#"Hadoop Cluster")
+* [Hive Project](#"Hive Project")
 * [Improvements](#Improvements)
 
 # Introduction
@@ -32,7 +32,7 @@ The data is tested for correctness using table views and queries.
     - Make sure your Notebook is nice and clean as hiring managers will visit your project
     - use `Full Page Screen Capture` chrome extension to capture a webpage as a picture
 
-![Jarvis Hive Project](/assets/JarvisHiveProject.png)
+![Jarvis Hive Project](./assets/JarvisHiveProject.png)
 
 # Improvements
 - Avoid null values in columns of all created tables.
