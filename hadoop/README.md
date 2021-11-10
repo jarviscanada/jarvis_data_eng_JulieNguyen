@@ -17,22 +17,34 @@ The data is tested for correctness using table views and queries.
 ![Cluster Architecture](./assets/ClusterArchitecture.png)
 ## Big Data Tools
 ### MapReduce
-- A framework used for large-scale data processing. It uses three operations: Map, Shuffle and Reduce.
+A framework used for large-scale data processing. It uses three operations: Map, Shuffle and Reduce.
   - `Map:` Each worker node applies the `map` function to the local data and writes the output to temporary storage, creating output keys.
   - `Shuffle:` Each worker node redistributes data based on the created output keys.
   - `Reduce:` The worker nodes process each group of output data per key, in parallel.
 ### YARN
-- YARN separates the resource management and processing components. It consists of a ResourceManager(RM), NodeManager(NM) and Application Manager(AM).
+YARN separates the resource management and processing components. It consists of a ResourceManager(RM), NodeManager(NM) and ApplicationManager(AM).
   - `ResourceManager:` The RM is the master daemon, which keeps track of live NM and available resources, allocating them to appropriate applications and tasks. It also monitors application masters.
   - `NodeManager:` The NM provides computational resources in containers, managing the processes within them.
-  - `Applicationmaster:` The AM coordinates the execution of all tasks in the application. It requests specific resource containers to run tasks.
+  - `ApplicationManager:` The AM coordinates the execution of all tasks in the application. It requests specific resource containers to run tasks.
 ### HDFS
-- Hadoop Distributed Filesystem (HDFS) is a filesystem designed for storing very large files. It consists of Blocks, Namenodes and Datanodes.
+Hadoop Distributed Filesystem (HDFS) is a filesystem designed for storing very large files. It consists of Blocks, Namenodes and Datanodes.
   - `Block:` HDFS deals with data in blocks, typically a few kilobytes in size. Files are broken into block-sized chunks and stored as independent units.
   - `Namenode:` The master node which manages the filesystem namespace. It maintains all the metadata for files and directories in the tree. It also knows about where blocks in datanodes are located, but does not store block locations persistently.
   - `Datanode:` The worker nodes which store and retrieve blocks when requested, reporting back to the namenode periodically with the list of blocks they are storing.
 ### Hive
-### Zeppelin
+Apache Hive is a framework for data warehousing on top of Hadoop, responsible for reading, writing and managing large datasets stored in the HDFS. It uses HiveQL, which is a query language used by Hive based on SQL. A Hive metastore enables a table structure onto large amounts of unstructured data. All information (tables, columns, rows, data types, etc.) is stored in the metastore.
+### Zeppelin Notebook
+Apache Zeppelin is an open web-based notebook that allows the analyst to do interactive data analytics. This includes development, organization, execution and visualizing results without needing to use the CLI or cluster details. It supports multiple programming languages such as Scala, Hive, SparkSQL, shell and markdown.
+
+## Hardware Specifications
+- 1 Master Node
+  - Contains the YARN RM, HDFS Namenode and all job drivers
+  - 12GB memory, 100GB disk size
+- 2 Worker Nodes
+  - Contains a YARN NM and an HDFS Datanode
+  - 12GB memory, 100GB disk size
+- 4 YARN cores
+  - 12GB memory
 
 # Hive Project
 ### Optimization
