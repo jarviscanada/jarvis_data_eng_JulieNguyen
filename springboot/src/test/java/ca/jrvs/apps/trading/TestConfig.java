@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
 import javax.sql.DataSource;
 
 @Configuration
-@ComponentScan("ca.jrvs.apps.trading")
+@ComponentScan(basePackages = {"ca.jrvs.apps.trading.dao", "ca.jrvs.apps.trading.service"})
 public class TestConfig {
 
     private Logger logger = LoggerFactory.getLogger(TestConfig.class);
@@ -37,8 +37,6 @@ public class TestConfig {
                         System.getenv("PSQL_DB");
         user = System.getenv("PSQL_USER");
         password = System.getenv("PSQL_PASSWORD");
-
-        //Never log your credentials/secrets. Use IDE debugger instead
         BasicDataSource basicDataSource = new BasicDataSource();
         basicDataSource.setUrl(jdbcUrl);
         basicDataSource.setUsername(user);
