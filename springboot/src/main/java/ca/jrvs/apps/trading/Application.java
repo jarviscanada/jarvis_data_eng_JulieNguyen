@@ -33,8 +33,6 @@ public class Application implements CommandLineRunner {
 
     @Override
     public void run(String...args) throws Exception{
-        ApplicationContext context = new AnnotationConfigApplicationContext(Application.class);
-        Application app = context.getBean(Application.class);
-        app.run(args);
+
     }
 }

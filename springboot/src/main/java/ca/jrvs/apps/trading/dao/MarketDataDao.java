@@ -14,6 +14,7 @@ import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.dao.DataRetrievalFailureException;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.http.HttpMethod;
@@ -33,6 +34,7 @@ public class MarketDataDao implements CrudRepository<IexQuote, String> {
     private final String IEX_BATCH_URL;
 
     private Logger logger = LoggerFactory.getLogger(MarketDataDao.class);
+
     private HttpClientConnectionManager httpClientConnectionManager;
 
     @Autowired
@@ -63,28 +65,33 @@ public class MarketDataDao implements CrudRepository<IexQuote, String> {
     public List<IexQuote> findAllById(Iterable<String> tickers) {
         List<IexQuote> iexQuotes = new ArrayList<>();
         ObjectMapper objectMapper = new ObjectMapper();
+        try{
+            for(String ticker : tickers){
+                String url = String.format(IEX_BATCH_URL, ticker);
 
-        for(String ticker : tickers){
-            String url = String.format(IEX_BATCH_URL, ticker);
-            try{
-                String executeUrl = executeHttpGet(url)
-                        .orElseThrow(() -> new IllegalArgumentException(ticker + "is invalid"));
-                JSONObject quotesJSONFormat = new JSONObject(executeUrl);
-                JSONObject json = quotesJSONFormat.getJSONObject(ticker);
-                iexQuotes.add(objectMapper.readValue(json.get("quote").toString(), IexQuote.class));
-            }
-            catch (IOException e){
-                throw new DataRetrievalFailureException("HTTP request failed.");
-            }
+                    String executeUrl = executeHttpGet(url)
+                            .orElseThrow(() -> new IllegalArgumentException(ticker + "is invalid."));
+                    JSONObject jsonQuotes = new JSONObject(executeUrl);
+                    JSONObject json = jsonQuotes.getJSONObject(ticker);
+                    iexQuotes.add(objectMapper.readValue(json.get("quote").toString(), IexQuote.class));
+                }
+        }catch (IOException e){
+            throw new DataRetrievalFailureException("HTTP request failed.");
         }
         return iexQuotes;
     }
 
     private Optional<String> executeHttpGet(String url) throws IOException {
         CloseableHttpClient closeableHttpClient = getHttpClient();
-        HttpUriRequest httpUriRequest = new HttpGet(url);
-        HttpResponse httpResponse = closeableHttpClient.execute(httpUriRequest);
-        return Optional.of(EntityUtils.toString(httpResponse.getEntity()));
+        HttpGet httpGet = new HttpGet(url);
+        HttpResponse httpResponse = closeableHttpClient.execute(httpGet);
+
+        if(httpResponse.getStatusLine().getStatusCode() == 200) {
+            return Optional.of(EntityUtils.toString(httpResponse.getEntity()));
+        }
+        else{
+            return Optional.empty();
+        }
     }
 
     private CloseableHttpClient getHttpClient(){
