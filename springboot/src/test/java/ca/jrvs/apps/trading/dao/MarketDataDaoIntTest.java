@@ -43,4 +43,11 @@ public class MarketDataDaoIntTest {
             fail();
         }
     }
+
+    @Test
+    public void findByTicker(){
+        String ticker = "AAPL";
+        IexQuote iexQuote = dao.findById(ticker).get();
+        assertEquals(ticker, iexQuote.getSymbol());
+    }
 }
