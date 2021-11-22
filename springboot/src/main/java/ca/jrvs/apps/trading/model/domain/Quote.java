@@ -66,4 +66,16 @@ public class Quote implements Entity<String>{
     public void setAskSize(Integer askSize) {
         this.askSize = askSize;
     }
+
+    @Override
+    public String toString() {
+        return "Quote{" +
+                "ticker='" + ticker + '\'' +
+                ", lastPrice=" + lastPrice +
+                ", bidPrice=" + bidPrice +
+                ", bidSize=" + bidSize +
+                ", askPrice=" + askPrice +
+                ", askSize=" + askSize +
+                '}';
+    }
 }

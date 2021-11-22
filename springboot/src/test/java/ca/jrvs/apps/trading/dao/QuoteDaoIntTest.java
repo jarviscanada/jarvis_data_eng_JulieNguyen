@@ -28,6 +28,11 @@ public class QuoteDaoIntTest {
     private Quote savedQuote;
 
     @Before
+    public void init(){
+        savedQuote = new Quote();
+    }
+
+    @Before
     public void insertOne(){
         savedQuote.setAskPrice(10d);
         savedQuote.setAskSize(10);
@@ -40,7 +45,7 @@ public class QuoteDaoIntTest {
 
     @Test
     public void findById(){
-        assertEquals(savedQuote, quoteDao.findById("aapl"));
+        assertEquals(savedQuote.toString(), quoteDao.findById("aapl").get().toString());
     }
 
     @Test
@@ -59,7 +64,7 @@ public class QuoteDaoIntTest {
         newQuote.setLastPrice(20.1d);
 
         quoteDao.save(newQuote);
-        assertEquals(newQuote, quoteDao.findById("aapl"));
+        assertEquals(newQuote.toString(), quoteDao.findById("aapl").get().toString());
     }
 
     @After

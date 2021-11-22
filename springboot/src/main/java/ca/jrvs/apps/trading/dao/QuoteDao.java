@@ -96,7 +96,8 @@ public class QuoteDao implements CrudRepository<Quote, String> {
 
     @Override
     public Optional<Quote> findById(String ticker) {
-        String query = "SELECT * FROM " + TABLE_NAME + "WHERE " + ID_COLUMN_NAME + " = ?";
+        String query = "SELECT * FROM " + TABLE_NAME + " WHERE " + ID_COLUMN_NAME +
+                "='" + ticker + "'";
         Optional<Quote> quote = null;
         try{
              quote = Optional.ofNullable(jdbcTemplate.queryForObject(query,
@@ -113,10 +114,16 @@ public class QuoteDao implements CrudRepository<Quote, String> {
 
     @Override
     public boolean existsById(String ticker) {
-        String query = "SELECT TOP 1 " + ID_COLUMN_NAME + "FROM " + TABLE_NAME +
-                "WHERE " + ID_COLUMN_NAME + " = ?";
-        Optional<Quote> quote = Optional.ofNullable(jdbcTemplate.queryForObject(query,
-                    Quote.class));
+        String query = "SELECT " + ID_COLUMN_NAME + " FROM " + TABLE_NAME +
+                " WHERE " + ID_COLUMN_NAME + "='" + ticker + "'";
+        Optional<Quote> quote;
+        try {
+            quote = Optional.ofNullable(jdbcTemplate.queryForObject(query,
+                    BeanPropertyRowMapper.newInstance(Quote.class)));
+        }
+        catch(EmptyResultDataAccessException e) {
+            return false;
+        }
         if(quote.isPresent()) {
             return true;
         }
