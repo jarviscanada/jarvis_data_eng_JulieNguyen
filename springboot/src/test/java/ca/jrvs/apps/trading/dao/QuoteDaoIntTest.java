@@ -7,6 +7,9 @@ import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -15,6 +18,9 @@ import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.transaction.Transactional;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
@@ -25,7 +31,8 @@ public class QuoteDaoIntTest {
 
     @Autowired
     private QuoteDao quoteDao;
-    private Quote savedQuote;
+    private Quote savedQuote, quote1, quote2, quote3;
+    private Quote newQuote;
 
     @Before
     public void init(){
@@ -55,7 +62,7 @@ public class QuoteDaoIntTest {
 
     @Test
     public void updateOne(){
-        Quote newQuote = new Quote();
+        newQuote = new Quote();
         newQuote.setAskPrice(20d);
         newQuote.setAskSize(20);
         newQuote.setBidPrice(20.2d);
@@ -67,9 +74,25 @@ public class QuoteDaoIntTest {
         assertEquals(newQuote.toString(), quoteDao.findById("aapl").get().toString());
     }
 
+    @Test
+    public void findAll(){
+        List<Quote>quote = quoteDao.findAll();
+        assertEquals(1, quote.size());
+    }
+
+    @Test
+    public void count(){
+        assertEquals(1, quoteDao.count());
+    }
+
     @After
     public void deleteOne(){
         quoteDao.deleteById(savedQuote.getId());
+    }
+
+    @After
+    public void deleteAll(){
+        quoteDao.deleteAll();
     }
 
 }
