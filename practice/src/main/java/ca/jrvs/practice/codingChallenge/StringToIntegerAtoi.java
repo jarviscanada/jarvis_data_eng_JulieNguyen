@@ -13,45 +13,38 @@ import java.util.stream.Collectors;
 public class StringToIntegerAtoi {
 
     public int myAtoi(String s) {
-        List<Character> stc = s.chars()
-                .mapToObj(e -> (char) e)
-                .collect(Collectors.toList());
+        char[]ch = s.toCharArray();
+        boolean hasDigit = false;
+        String res = "";
 
-        String resultStr = "";
-        boolean leading = true;
-
-        for (char c : stc) {
-            if (!leading) {
-                if (Character.isDigit(c))
-                    resultStr += c;
-                else
-                    break;
+        for(char c : ch){
+            if(Character.isDigit(c)){
+                res += c;
+                hasDigit = true;
             }
-
-            if (leading) {
-                if (Character.isWhitespace(c)) {
-                    //do nothing
-                } else if (c == '+') {
-                    resultStr += '+';
-                } else if (c == '-') {
-                    resultStr += '-';
-                } else if (Character.isDigit(c)) {
-                    leading = false;
-                    resultStr += c;
-                } else {
-                    return 0;
-                }
+            else if(c=='-'||c=='+'){
+                if(res.equals("-")||res.equals("+")||hasDigit==true)
+                    break;
+                res += c;
+            }
+            else if(Character.isLetter(c)||!Character.isWhitespace(c)&&!Character.isDigit(c)){
+                break;
+            }
+            else if(Character.isWhitespace(c)&&hasDigit==true){
+                break;
             }
         }
+        if(hasDigit){
+            long result = Long.parseLong(res);
 
-        long result = Long.parseLong(resultStr);
+            if(result<Integer.MIN_VALUE)
+                return Integer.MIN_VALUE;
+            else if(result>Integer.MAX_VALUE)
+                return Integer.MAX_VALUE;
 
-        if(result<Integer.MIN_VALUE)
-            return Integer.MIN_VALUE;
-        else if(result>Integer.MAX_VALUE)
-            return Integer.MAX_VALUE;
-
-        return (int) result;
+            return (int) result;
+        }
+        return 0;
     }
 
 }

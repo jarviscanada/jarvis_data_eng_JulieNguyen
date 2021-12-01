@@ -19,6 +19,19 @@ public class FibonacciClimbingStairs {
         }
     }
 
+    //Using dynamic programming
+    public int fibDP(int n){
+        int [] result = new int [31];
+        result[0] = 0;
+        result[1] = 1;
+
+        for(int i=2; i<=30; i++){
+            result[i] = result[i-1] + result[i-2];
+        }
+
+        return result[n];
+    }
+
     /**
      * Time complexity O(n), linear
      * @param n
@@ -33,6 +46,14 @@ public class FibonacciClimbingStairs {
             result[i] = result[i - 1] + result[i - 2];
 
         return result[n];
+    }
+
+    //Using recursion
+    public int climbStairsRec(int n){
+        if(n==1||n==2)
+            return n;
+        else
+            return climbStairsRec(n-1) + climbStairsRec(n-2);
     }
 
 }
